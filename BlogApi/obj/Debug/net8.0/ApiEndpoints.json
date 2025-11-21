@@ -43,6 +43,16 @@
   },
   {
     "ContainingType": "BlogApi.Controllers.BloggerController",
+    "Method": "getCountOfBloggersPosts",
+    "RelativePath": "api/Blogger/getCountOfBloggersPosts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BlogApi.Controllers.BloggerController",
     "Method": "GetBloggersWithPosts",
     "RelativePath": "api/Blogger/withPosts",
     "HttpMethod": "GET",

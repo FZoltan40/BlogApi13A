@@ -85,8 +85,42 @@ namespace BlogApi.Controllers
                 {
                     var bloggerWithPosts = context.bloggers.Include(x => x.Posts).FirstOrDefault(x => x.Id == id);
 
-                    var blogger = new { bloggerWithPosts.Name, Posts = bloggerWithPosts.Posts.Select(x => new { x.Category, x.Description }) };
-                    return Ok(new { messaege = "Sikeres lekérdezés", result = blogger });
+                    if (bloggerWithPosts == null)
+                    {
+                        var blogger = new { Blogger = bloggerWithPosts.Name, Posts = bloggerWithPosts.Posts.Select(x => new { x.Category, x.Description }) };
+                        return Ok(new { messaege = "Sikeres lekérdezés", result = blogger });
+                    }
+
+                    return NotFound(new { message = "Sikertlen felvétel", result = bloggerWithPosts });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { messaege = ex.Message, result = "" });
+            }
+        }
+
+        [HttpGet("getCountOfBloggersPosts")]
+        public ActionResult getCountOfBloggersPosts()
+        {
+            try
+            {
+                using (var context = new BlogDbContext())
+                {
+                    var countOfBloggersPosts = context.bloggers
+                        .Include(x => x.Posts)
+                        .ToList()
+                        .Select(x => new { Blogger = x.Name, Posts = x.Posts.Count() });
+ 
+           
+
+                    if (countOfBloggersPosts == null)
+                    {
+                      
+                        return Ok(new { messaege = "Sikeres lekérdezés", result = countOfBloggersPosts });
+                    }
+
+                    return NotFound(new { message = "Sikertlen felvétel", result = countOfBloggersPosts });
                 }
             }
             catch (Exception ex)
