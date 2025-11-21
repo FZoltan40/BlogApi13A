@@ -40,5 +40,22 @@ namespace BlogApi.Controllers
           
 
         }
+
+        [HttpGet]
+        public ActionResult GetBlogger() 
+        {
+            try
+            {
+                using (var context = new BlogDbContext())
+                {
+                    var bloggers = context.bloggers.ToList();
+                    return Ok(new { messaege = "Sikeres lekérdezés", result =bloggers});
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { messaege = ex.Message, result = "" });
+            }
+        }
     }
 }
