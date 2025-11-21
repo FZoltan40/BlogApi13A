@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace BlogApi.Models
 {
@@ -14,6 +15,7 @@ namespace BlogApi.Models
         }
 
         public DbSet<Blogger> bloggers { get; set; }
+        public DbSet<Post> posts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("server=localhost;database=blog13a;user=root;password=");
