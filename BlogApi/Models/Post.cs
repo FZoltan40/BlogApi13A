@@ -13,6 +13,8 @@ namespace BlogApi.Models
         public int BloggerId { get; set; }
         public DateTime RegTime { get; set; }= DateTime.Now;
         public DateTime ModTime { get; set; }=DateTime.Now;
+
+        [JsonIgnore]
         public virtual Blogger Bloggers { get; set; }
 
     }

@@ -26,6 +26,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BlogApi.Controllers.BloggerController",
+    "Method": "GetBloggersByIdWithPosts",
+    "RelativePath": "api/Blogger/getByIdWithPosts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BlogApi.Controllers.BloggerController",
+    "Method": "GetBloggersWithPosts",
+    "RelativePath": "api/Blogger/withPosts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BlogApi.Controllers.PostController",
     "Method": "AddNewPost",
     "RelativePath": "api/Post",
